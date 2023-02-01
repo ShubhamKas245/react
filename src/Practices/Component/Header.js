@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import foodvila from "../../assets/img/foodvila.jpg";
+import UseContext from "../../utils/UseContext";
 
 const Title = () => {
   return (
@@ -14,12 +15,15 @@ const Title = () => {
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const {user}=useContext(UseContext);
+
   return (
     <>
-      <div className="flex justify-between shadow-lg bg-pink-100">
+      <div className="flex justify-between shadow-lg bg-pink-100 items-center">
         <Title />
         <div>
-          <ul className="flex gap-1 m-2">
+          <ul className="flex gap-1 m-2 ">
             <Link to="/">
               <li>Home</li>
             </Link>
@@ -34,6 +38,9 @@ const Header = () => {
               <li>InstaMart</li>
             </Link>
           </ul>
+        </div>
+        <div>
+          {user.name}
         </div>
         {isLoggedIn ? (
           <button

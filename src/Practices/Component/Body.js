@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // import { restaurentList } from "../constants";
 import RestaurentCard from "./Restaurent";
 import Shimmer from "./Shimmer";
 import { filterData } from "../../utils/helper";
 import useOnline from "../../utils/useOnline";
+import UseContext from "../../utils/UseContext";
 
 
 
@@ -14,6 +15,7 @@ const Body = () => {
   const [allRestaurents, setAllRestaurents] = useState([]);
   const [filterRestaurent, setFilterRestaurent] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const {user,setUser}=useContext(UseContext);
 
   async function getRestaurent() {
     const data = await fetch(
@@ -58,6 +60,11 @@ const Body = () => {
         >
           Search
         </button>
+        <input value={user.name}  onChange={e=>setUser({
+          name:e.target.value,
+          email:"new Email",
+        })
+        }></input>
       </div>
       <div className="flex flex-wrap  m-5">
         {filterRestaurent.length === 0 ? (
