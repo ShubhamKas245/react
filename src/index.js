@@ -9,6 +9,7 @@ import Contact from './Practices/Component/Contact';
 import Body from './Practices/Component/Body';
 import RestaurentMenu from './Practices/Component/RestaurentMenu';
 import Shimmer from './Practices/Component/Shimmer';
+import Cart from './Practices/Component/Cart';
 // import InstaMart from './Practices/Component/InstaMart';
 
 // Chunking
@@ -45,6 +46,10 @@ const appRouter=createBrowserRouter([
       {
         path:"/instamart",
         element:<Suspense fallback={<Shimmer />}><InstaMart /></Suspense>
+      },
+      {
+        path:"/cart",
+        element:<Cart />
       }
    ]
   },

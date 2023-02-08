@@ -14,7 +14,7 @@ const useRestaurent = (id) => {
 
   useEffect(() => {
     getRestaurentInfo();
-  });
+  },[] );
 
   // return restaurent data
   return restaurent;
