@@ -10,7 +10,7 @@ import store from './utils/store';
 
 function App() {
   const [user,setUser]=useState({
-      name:"shyubh",
+      name:"krishna",
       email:"shyubh@gmail.com"
     
   })
